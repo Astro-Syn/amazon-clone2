@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import { useDispatch } from "react-redux";
 import { FaStar } from "react-icons/fa6";
+import { addtoCart } from "../features/cartSlice";
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
@@ -26,6 +27,8 @@ export default function Product({ id, title, price, description, category, image
       </div>
     );
   }
+
+  const dispatch = useDispatch();
 
   return (
     <div className="relative flex flex-col m-5 bg-white z-30 p-10">
@@ -57,7 +60,11 @@ export default function Product({ id, title, price, description, category, image
         </div>
       )}
 
-      <button className="mt-auto button">Add to Basket</button>
+      <button className="mt-auto button"
+      onClick={() => dispatch(addtoCart({title, image}))}
+      >
+        Add to Basket
+      </button>
     </div>
   );
 }
