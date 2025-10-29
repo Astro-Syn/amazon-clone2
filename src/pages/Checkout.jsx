@@ -1,8 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { removefromCart } from '../features/cartSlice'
+removefromCart;
+
 export default function Checkout() {
     const cartItems = useSelector(state => state.cart.cart)
+    const dispatch = useDispatch()
   return (
     <div className='flex flex-col'>
         <div className='bg-white p-10'>
@@ -14,7 +18,10 @@ export default function Checkout() {
                             <img src={item.image} className='w-30'/>
                             <div>
                                 <p>{item.title}</p>
-                                <button>Remove</button>
+                                <button
+                                onClick={() => dispatch(removefromCart({id: item.id}))}
+                                >Remove
+                                </button>
                             </div>
                         </div>
                     )
