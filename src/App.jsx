@@ -8,6 +8,9 @@ import { Provider } from 'react-redux'
 import store from './features/store'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Checkout from './pages/Checkout'
+import Payment from './pages/Payment'
+import Confirmation from './pages/Confirmation'
+
 
 function App() {
   const [products, setProducts] = useState(null)
@@ -28,13 +31,13 @@ function App() {
         <div className="bg-gray-100">
           <ErrorBoundary>
 
-            {/* Always visible */}
+          
             <Header />
 
             <main className="max-w-screen-2xl mx-auto">
               <Routes>
 
-                {/* Home Route */}
+                {/* Home */}
                 <Route
                   path="/"
                   element={
@@ -47,6 +50,8 @@ function App() {
 
                
                 <Route path="/checkout" element={<Checkout />} />
+                <Route path="/payment" element={<Payment />} />
+                <Route path="/confirmation" element={<Confirmation />} />
 
               </Routes>
             </main>

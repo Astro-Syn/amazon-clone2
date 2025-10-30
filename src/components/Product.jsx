@@ -61,7 +61,7 @@ export default function Product({ id, title, price, description, category, image
       )}
 
       <button className="mt-auto button"
-      onClick={() => dispatch(addtoCart({id, title, image}))}
+      onClick={() => dispatch(addtoCart({id, title, image, price}))}
       >
         Add to Basket
       </button>
